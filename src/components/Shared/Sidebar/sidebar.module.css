@@ -1,0 +1,8 @@
+.sidebar {
+    border: 1px solid #ddd;
+    height: 100vh;
+    padding-top: 25px;
+}
+.sidebar__link {
+    padding: 50px 20px;
+}

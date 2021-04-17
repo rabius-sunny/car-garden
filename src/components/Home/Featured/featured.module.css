@@ -1,0 +1,19 @@
+.featuredCard {
+    margin: 15px 0;
+    text-align: center;
+    border: 1px solid #bbbcbd;
+}
+.featuredCard img {
+    height: 250px;
+}
+.featuredCard ul li {
+    display: inline-block;
+    list-style: none;
+    border-right: 1px solid #ddd;
+    padding: 5px 8px;
+}
+.featuredCard ul li:last-child {border: 0;}
+.featuredCard ul {
+    padding: 0;
+    margin-bottom: 0;
+}

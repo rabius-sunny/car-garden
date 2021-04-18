@@ -1,7 +1,7 @@
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
-import { UserContext } from '../../../App';
+import { UserContext } from '../../../../App';
 
 const PaymentForm = ({ handlePayment, id, car }) => {
 
@@ -40,44 +40,46 @@ const PaymentForm = ({ handlePayment, id, car }) => {
             setPaymentSuccess(paymentMethod.id);
             setPaymentError(null);
             handlePayment(paymentMethod.id)
-        }
-        const bookingData = {
-            userName: user.name,
-            email: user.email,
-            date: new Date(),
-            pamentId: id,
-            car: car
-        }
-        const url = 'https://car-garden.herokuapp.com/bookThisCar'
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(bookingData)
-        })
-            .then(res => console.log('Car Booking Placed'))
-            .catch(err => console.log(err))
+            const bookingData = {
+                userName: user.name,
+                email: user.email,
+                date: new Date(),
+                pamentId: id,
+                car: car
+            }
+            const url = 'https://car-garden.herokuapp.com/bookThisCar'
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(bookingData)
+            })
+                .then(res => console.log('Car Booking Placed'))
+                .catch(err => console.log(err))
 
-        alert('Succesfully Booked This Car')
-        history.push('/')
+            alert('Succesfully Booked This Car')
+            history.push('/')
+        }
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <>
+            <form className="w-75 text-center" onSubmit={handleSubmit}>
+                <p className="text-start"><small>Please enter your valid credential below for payment</small></p>
                 <CardElement />
-                <button type="submit" className="btn btn-outline-success" disabled={!stripe}>
+                <button type="submit" className="btn btn-outline-success w-75 mt-5" disabled={!stripe}>
                     Confirm Order
                 </button>
             </form>
+            <br />
             {
                 paymentError && <p style={{ color: 'red' }}>{paymentError}</p>
             }
             {
                 paymentSuccess && <p style={{ color: 'green' }}>Your payment was successful.</p>
             }
-        </div>
+        </>
     )
 }
 

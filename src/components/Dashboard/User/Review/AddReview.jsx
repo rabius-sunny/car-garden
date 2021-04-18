@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { useHistory } from "react-router"
-import { UserContext } from "../../../App"
-import Sidebar from "../../Shared/Sidebar/Sidebar"
+import { UserContext } from "../../../../App"
+import Sidebar from "../../../Shared/Sidebar/Sidebar"
 
 const AddReview = () => {
 
@@ -39,11 +39,11 @@ const AddReview = () => {
                 <Sidebar />
                 <div className="col-md-10">
                     <h3 className="py-4 section__header__primary">Add a Review</h3>
-                    <div className="p-4">
-                        <textarea name="msg" onChange={handleChange} ></textarea>
-                        <input type="text" name="company" onChange={handleChange} placeholder="enter your company" className="form-control" />
-                        <button className="btn btn-primary" onClick={handleSubmit}>Add Review</button>
-                    </div>
+                    <form className="bg-light p-5 w-75 text-center" onSubmit={handleSubmit}>
+                        <textarea name="msg" className="w-75 mb-3 form-control m-auto" placeholder="Enter your Review" required onChange={handleChange} ></textarea>
+                        <input type="text" name="company" required onChange={handleChange} placeholder="enter your company" className="form-control w-75 m-auto mb-3" />
+                        <input className="btn btn-primary w-75" type="submit" value="Add Review" />
+                    </form>
                 </div>
             </div>
         </div>

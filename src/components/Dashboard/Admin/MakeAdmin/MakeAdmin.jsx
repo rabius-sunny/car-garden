@@ -35,7 +35,7 @@ const MakeAdmin = () => {
                     <h3 className="py-4 section__header__primary">Add Ride</h3>
                     <div className="m-4">
                         <form onSubmit={handleSubmit}>
-                            <input type="text" className="form-control w-75" onChange={handleInput} placeholder="enter email" /><br />
+                            <input type="text" className="form-control w-75" required onChange={handleInput} placeholder="enter email" /><br />
                             <input type="submit" value="Make Admin" className="btn btn-secondary" />
                         </form>
                     </div>

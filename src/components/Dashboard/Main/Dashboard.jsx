@@ -32,7 +32,7 @@ const Dashboard = () => {
             <div className="row">
                 <Sidebar isAdmin={isAdmin} />
                 <div className="col-md-10">
-                    <h3 className="py-4 section__header__primary">{isAdmin ? 'Manage Rides' : 'All Bookings'}</h3>
+                    <h3 className="py-4 section__header__primary">{isAdmin ? 'Order List' : 'All Bookings'}</h3>
                     <div className="p-4">
                         <table>
                             <thead>

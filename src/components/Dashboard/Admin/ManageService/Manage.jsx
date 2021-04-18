@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import { AdminContext } from "../../../../App"
 import Sidebar from "../../../Shared/Sidebar/Sidebar"
+import Spinner from "../../../Shared/Spinner"
 
 const Manage = () => {
 
@@ -44,11 +45,14 @@ const Manage = () => {
 
                             <tbody>
                                 {
+                                    cars.length === 0 && <Spinner />
+                                }
+                                {
                                     cars.map(car => <tr>
                                         <td>{car.name}</td>
                                         <td>{car.price}</td>
                                         <td>{car.type}</td>
-                                        <td><button className="btn btn-success mx-2">edit</button><button onClick={() => handleDelete(car._id)} className="btn btn-danger">delete</button></td>
+                                        <td><button className="btn btn-warning mx-2">edit</button><button onClick={() => handleDelete(car._id)} className="btn btn-danger">delete</button></td>
                                     </tr>)
                                 }
                             </tbody>

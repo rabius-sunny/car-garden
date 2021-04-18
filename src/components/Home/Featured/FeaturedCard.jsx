@@ -8,7 +8,7 @@ const FeaturedCard = ({ car }) => {
         <div className="col-md-4">
             <div className={classes.featuredCard}>
                 <img src={image} className="w-100" alt="cars" />
-                <h5 className="pt-3 section__header__primary">{name}</h5>
+                <h5 className={`pt-4 section__header__primary ${classes.header}`}>{name}</h5>
                 <p className="text-secondary">Start from {price}$/per a day</p>
                 <Link to={"/car/" + _id}><button className="btn btn-outline-primary mb-4">RENT IT</button></Link>
                 <ul>

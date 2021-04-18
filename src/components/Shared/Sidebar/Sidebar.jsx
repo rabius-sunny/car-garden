@@ -12,6 +12,8 @@ const Sidebar = ({ isAdmin }) => {
                     {isAdmin && <p><Link to="/addService">Add Service</Link></p>}
                     {isAdmin && <p><Link to="/make-admin">Make Admin</Link></p>}
                     {isAdmin && <p><Link to="/manage">Manage Services</Link></p>}
+                    {!isAdmin && <p><Link to="/place-bookings">Place Bookings</Link></p>}
+                    {!isAdmin && <p><Link to="/addReview">Add a Review</Link></p>}
                 </div>
             </div>
         </div>

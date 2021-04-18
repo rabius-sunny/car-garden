@@ -1,14 +1,17 @@
 import axios from 'axios'
 import { useForm } from "react-hook-form";
-import { useState } from "react"
-import Sidebar from "../../Shared/Sidebar/Sidebar"
+import { useContext, useState } from "react"
+import Sidebar from "../../../Shared/Sidebar/Sidebar"
 import { useHistory } from 'react-router';
+import { AdminContext } from '../../../../App';
 
 const AddService = () => {
 
-    const { register, handleSubmit, errors } = useForm();
+    const [isAdmin, setIsAdmin] = useContext(AdminContext)
+    const { register, handleSubmit } = useForm();
     const [image, setImage] = useState(null)
     const history = useHistory()
+
     const handleImage = e => {
         const image = new FormData();
         image.set('key', '93806700d73c6e0cf4767ba7d1804c67');
@@ -51,28 +54,35 @@ const AddService = () => {
     return (
         <div className="container-fluid">
             <div className="row">
-                <Sidebar />
+                <Sidebar isAdmin={isAdmin} />
                 <div className="col-md-10">
                     <h3 className="py-4 section__header__primary">Add Ride</h3>
                     <div className="row">
-                        <form onSubmit={handleSubmit(onSubmit)} className="m-5 p-4">
+                        <form onSubmit={handleSubmit(onSubmit)} className="my-2 p-4">
                             <div className="row">
                                 <div className="col-md-6">
-                                    <input type="text" defaultValue="Car Name" {...register('name')} />
+                                    <label htmlFor="">Car Name :</label>
+                                    <input type="text" className="form-control w-75" defaultValue="Car Name" {...register('name')} /> <br/>
 
-                                    <input type="number" defaultValue="cost per day" {...register('price')} />
+                                    <label htmlFor="">Rental Charge :</label>
+                                    <input type="number" className="form-control w-75" defaultValue="000" {...register('price')} /> <br/>
 
-                                    <input type="text" defaultValue="car type" {...register('carType')} />
+                                    <label htmlFor="">Car Type :</label>
+                                    <input type="text" className="form-control w-75" defaultValue="car type" {...register('carType')} /> <br/>
 
-                                    <input type="number" name="passengers" defaultValue="000" {...register('passengers')} />
+                                    <label htmlFor="">Passengers Ability</label>
+                                    <input type="number" className="form-control w-75" name="passengers" defaultValue="00" {...register('passengers')} /> <br/>
                                 </div>
 
                                 <div className="col-md-6">
-                                    <input type="file" onChange={handleImage} />
+                                    <label htmlFor="">Car Thumbnail</label>
+                                    <input type="file" className="form-control w-75" onChange={handleImage} /> <br/>
 
-                                    <input type="text" defaultValue="geer type" {...register('geerType')} />
+                                    <label htmlFor="">Geer Type</label>
+                                    <input type="text" className="form-control w-75" defaultValue="geer type" {...register('geerType')} /> <br/>
 
-                                    <input type="text" defaultValue="fuel type" {...register('fuelType')} />
+                                    <label htmlFor="">Fuel Type</label>
+                                    <input type="text"  className="form-control w-75"defaultValue="fuel type" {...register('fuelType')} /> <br/>
                                 </div>
                             </div>
                             <input type="submit" value="Add Ride" className="btn btn-primary" />

@@ -1,12 +1,9 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBKUSY_jL2REaHr6XlCx9bNXiUjE7Q2rUg",
-    authDomain: "i-dev-publications.firebaseapp.com",
-    projectId: "i-dev-publications",
-    storageBucket: "i-dev-publications.appspot.com",
-    messagingSenderId: "614179540923",
-    appId: "1:614179540923:web:7ee4320d1c22bf3a57fe9e"
-}
-
+    apiKey: "AIzaSyAfapCkyUg9QhvFpwy-WZyLbTQSQYxnpW0",
+    authDomain: "car-garden.firebaseapp.com",
+    projectId: "car-garden",
+    storageBucket: "car-garden.appspot.com",
+    messagingSenderId: "714034504177",
+    appId: "1:714034504177:web:90fd5d41c9d80da7026450"
+};
 export default firebaseConfig
-
-// Here I have used an existing firebase authentication project id, because I have a limited plan on firebase.

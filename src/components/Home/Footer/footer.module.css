@@ -1,6 +1,42 @@
 .footer {
     margin-bottom: 0;
+    color:  #fff !important;
+    padding: 50px 0 0 0;
+}
+.footer h4 {
+    color: #fff !important;
+    font-size: 2rem;
 }
 .footer__left img {
     width: 150px;
+}
+.footer a {
+    color: rgba(255, 255, 255, 0.726) !important;
+}
+.footer__left p {
+    color: rgba(255, 255, 255, 0.726);
+}
+.footer__center {
+    padding-top: 0;
+}
+.footer i {
+    color: darkblue;
+}
+.footer__right p {text-decoration: underline;}
+
+@media (max-width: 575px) {
+    .footer__center {
+        padding-top: 2rem;
+    }
+}
+@media (max-width: 767px) {
+    .copyright p {
+        font-size: 0.8rem;
+    }
+    .copyright i {
+        font-size: 1.5rem;
+    }
+    .copyright {
+        flex-direction: column;
+    }
 }

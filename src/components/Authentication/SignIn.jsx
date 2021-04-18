@@ -4,6 +4,9 @@ import firebaseconfig from './firebase'
 import { useContext } from 'react'
 import { useHistory, useLocation } from 'react-router'
 import { UserContext } from '../../App'
+import classes from './auth.module.css'
+import logo from '../../logo.png'
+import { Link } from 'react-router-dom'
 
 if (firebase.apps.length === 0) {
     firebase.initializeApp(firebaseconfig)
@@ -38,9 +41,30 @@ const SignIn = () => {
     }
 
     return (
-        <div>
-            <button onClick={handleSignIn} className="btn btn-secondary m-5 p-3">Sign in</button>
-        </div>
+        <section style={{ background: 'lightblue', height: '100vh' }}>
+            <div className="container py-md-5">
+                <nav className="text-center mb-5">
+                    <Link to="/"><img src={logo} alt="logo" className="w-25" /></Link> <br /> <hr />
+                </nav>
+                <div className={classes.form}>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="******" />
+                    </div>
+                    <div className="text-end mb-4">
+                        <button onClick={handleSignIn} className="btn btn-primary">Sign in</button>
+                    </div>
+                    <div className="text-center">
+                        <p>__________ Or __________</p>
+                        <p><button onClick={handleSignIn} className="btn text-primary">continue with Google</button></p>
+                    </div>
+                </div>
+            </div>
+        </section>
     )
 }
 

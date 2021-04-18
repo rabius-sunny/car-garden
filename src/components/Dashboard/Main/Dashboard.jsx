@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../../../App"
+import { AdminContext, UserContext } from "../../../App"
 import Sidebar from "../../Shared/Sidebar/Sidebar"
+import Spinner from "../../Shared/Spinner"
 
 const Dashboard = () => {
 
     const [user, setUser] = useContext(UserContext)
     const [bookings, setBookings] = useState([])
-    const [isAdmin, setIsAdmin] = useState(false)
+    const [isAdmin, setIsAdmin] = useContext(AdminContext)
 
     useEffect(() => {
         fetch('https://car-garden.herokuapp.com/admins')
@@ -26,14 +27,12 @@ const Dashboard = () => {
             .then(data => setBookings(data))
     }, [user.email])
 
-
-
     return (
         <div className="container-fluid">
             <div className="row">
                 <Sidebar isAdmin={isAdmin} />
                 <div className="col-md-10">
-                    <h3 className="py-4 section__header__primary">Manage Rides</h3>
+                    <h3 className="py-4 section__header__primary">{isAdmin ? 'Manage Rides' : 'All Bookings'}</h3>
                     <div className="p-4">
                         <table>
                             <thead>
@@ -43,11 +42,14 @@ const Dashboard = () => {
                                     <th>Car Name</th>
                                     <th>Type</th>
                                     <th>Date</th>
-                                    <th>Action</th>
+                                    {isAdmin && <th>Action</th>}
                                 </tr>
                             </thead>
 
                             <tbody>
+                                {
+                                    bookings.length === 0 && <Spinner />
+                                }
                                 {
                                     bookings.map(booking => {
                                         let date = booking.date
@@ -55,10 +57,10 @@ const Dashboard = () => {
                                         let result = <tr>
                                             <td>{booking.userName}</td>
                                             <td>{booking.email}</td>
-                                            <td>{booking.name}</td>
-                                            <td>{booking.type}</td>
+                                            <td>{booking.car.name}</td>
+                                            <td>{booking.car.type}</td>
                                             <td>{shortDate}</td>
-                                            <td><button className="btn btn-success">done</button><button className="btn btn-warning">pending</button></td>
+                                            {isAdmin && <td><button className="btn btn-success mx-2">done</button><button className="btn btn-warning">pending</button></td>}
                                         </tr>
                                         return result
                                     })

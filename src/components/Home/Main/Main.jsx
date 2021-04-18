@@ -15,10 +15,10 @@ const Main = () => {
             <Intro />
             <Featured />
             <WhyUs />
-            <Blog />
-            <Review />
             <Team />
+            <Review />
             <Achieve />
+            <Blog />
             <Footer />
         </>
     )

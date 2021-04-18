@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react"
-import Sidebar from "../../Shared/Sidebar/Sidebar"
+import { useContext, useEffect, useState } from "react"
+import { useHistory } from "react-router"
+import { AdminContext } from "../../../../App"
+import Sidebar from "../../../Shared/Sidebar/Sidebar"
 
 const Manage = () => {
 
+    const history = useHistory()
+    const [isAdmin, setIsAdmin] = useContext(AdminContext)
     const [cars, setCars] = useState([])
     useEffect(() => {
         fetch('https://car-garden.herokuapp.com/cars')
@@ -17,12 +21,14 @@ const Manage = () => {
             .catch(err => console.log(err))
 
         alert('Car deleted successfully')
+        history.push('/')
+
     }
 
     return (
         <div className="container-fluid">
             <div className="row">
-                <Sidebar />
+                <Sidebar isAdmin={isAdmin} />
                 <div className="col-md-10">
                     <h3 className="py-4 section__header__primary">Manage Rides</h3>
                     <div className="p-4">

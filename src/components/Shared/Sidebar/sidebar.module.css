@@ -1,8 +1,13 @@
 .sidebar {
-    border: 1px solid #ddd;
+    border-right: 6px solid #000;
+    background: rgb(0, 0, 48);
     height: 100vh;
     padding-top: 25px;
 }
 .sidebar__link {
     padding: 50px 20px;
+}
+.sidebar__link a {
+    color: #fff;
+    text-decoration: underline;
 }

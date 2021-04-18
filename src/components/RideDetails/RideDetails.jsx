@@ -16,28 +16,10 @@ const RideDetails = () => {
             .then(data => setCar(data[0]))
             .catch(err => console.log(err))
     }, [id])
-    const { name, price, type, passengers, image, geer, fuel, _id } = car
+    const { name, price, type, passengers, image, geer, fuel } = car
     const handleBooking = () => {
-        const bookingData = {
-            userName: user.name,
-            email: user.email,
-            photo: user.photo,
-            date: new Date(),
-            ...car
-        }
-        const url = 'https://car-garden.herokuapp.com/bookThisCar'
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(bookingData)
-        })
-            .then(res => console.log('Car Booking Placed'))
-            .catch(err => console.log(err))
-
-        alert('Succesfully Booked This Car')
-        history.push('/')
+       sessionStorage.setItem('id', id)
+       history.push('/place-bookings')
     }
 
     return (

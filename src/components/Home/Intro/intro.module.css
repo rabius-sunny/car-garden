@@ -3,11 +3,19 @@
 }
 .centered {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 .centered h1 {
-    color: #00ffa1;
-    font-size: 50px
+    color: #3700ff;
+    font-size: 5rem;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
 }
+ @media (max-width: 767px) {
+     .centered h1 {font-size: 3rem;}
+ }
+ @media (max-width: 577px) {
+     .centered h1 {font-size: 2rem;}
+ }

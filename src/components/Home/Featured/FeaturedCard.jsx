@@ -7,10 +7,10 @@ const FeaturedCard = ({ car }) => {
     return (
         <div className="col-md-4">
             <div className={classes.featuredCard}>
-                <img src={image} className="w-100" alt="" />
-                <h5>{name}</h5>
+                <img src={image} className="w-100" alt="cars" />
+                <h5 className="pt-3 section__header__primary">{name}</h5>
                 <p className="text-secondary">Start from {price}$/per a day</p>
-                <Link to={"/car/" + _id}><button className="btn btn-primary mb-4">RENT IT</button></Link>
+                <Link to={"/car/" + _id}><button className="btn btn-outline-primary mb-4">RENT IT</button></Link>
                 <ul>
                     <li>{type}</li>
                     <li>{geer}</li>

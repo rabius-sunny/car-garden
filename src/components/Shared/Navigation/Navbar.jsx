@@ -5,8 +5,8 @@ import classes from './nav.module.css'
 const Navbar = () => {
     return (
         <nav className={`navbar navbar-expand-lg navbar-dark sticky-top ${classes.bgDark}`}>
-            <div className="container d-flex justify-content-between">
-                <div>
+            <div className="container">
+                <div className={`d-flex justify-content-between ${classes.customWidth}`}>
                     <a className="navbar-brand" href="/"><img src={logo} alt="logo" className="w-50" /></a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -18,19 +18,19 @@ const Navbar = () => {
                             <a className="nav-link active" href="/">Home</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">Our Cars</a>
+                            <a className="nav-link ps-3" href="/">Our Cars</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">Reviews</a>
+                            <a className="nav-link ps-3" href="/">Reviews</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">About</a>
+                            <a className="nav-link ps-3" href="/">About</a>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/dashboard">Pages</Link>
+                            <Link className="nav-link ps-3" to="/dashboard">Dashboard</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">Contact Us</a>
+                            <a className="nav-link ps-3" href="/">Contact Us</a>
                         </li>
                     </ul>
                 </div>

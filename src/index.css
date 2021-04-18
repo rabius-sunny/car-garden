@@ -20,3 +20,18 @@ a {
 table {width: 100%;}
 td, th {padding: 10px;}
 th {background-color: rgba(221, 221, 221, 0.363);}
+
+.social ul {padding-left: 0;}
+.social ul li {
+    list-style: none;
+    display: inline;
+    padding-right: 15px;
+    font-size: 35px;
+    color: #3367D6;
+    cursor: pointer;
+}
+.social ul li i:hover {
+    transition: all 0.5s;
+    transform: rotate(360deg);
+    color:#04061f;
+}

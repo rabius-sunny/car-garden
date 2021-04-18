@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Spinner from '../../Shared/Spinner'
 import FeaturedCard from './FeaturedCard'
 
 const Featured = () => {
@@ -13,15 +14,18 @@ const Featured = () => {
     return (
         <section>
             <div className="container">
-                <div className="text-center">
-                    <h4 className="section__header__section">
+                <div className="text-center mb-5">
+                    <h5 className="section__header__secondary pt-md-5">
                         Featured Vahicles
-                    </h4>
+                    </h5>
                     <h1 className="section__header__primary">
                         GREAT RENTAL OFFERS FOR YOU
                     </h1>
                 </div>
                 <div className="row">
+                    {
+                        cars.length === 0 && <Spinner />
+                    }
                     {
                         cars.map(car => <FeaturedCard car={car} key={car._id} />)
                     }

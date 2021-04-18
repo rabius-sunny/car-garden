@@ -1,10 +1,13 @@
 .featuredCard {
     margin: 15px 0;
     text-align: center;
-    border: 1px solid #bbbcbd;
+    border: 1px solid #bbbcbda6;
 }
 .featuredCard img {
     height: 250px;
+}
+.featuredCard h5 {
+    font-size: 25px;
 }
 .featuredCard ul li {
     display: inline-block;

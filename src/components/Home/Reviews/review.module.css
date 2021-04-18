@@ -1,6 +1,11 @@
-
+.reviewCard {
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
 .reviewCard img {
     width: 70px;
     height: 70px;
+    border: 5px solid rgba(221, 221, 221, 0.205);
     border-radius: 50%;
 }

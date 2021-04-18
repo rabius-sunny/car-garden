@@ -1,8 +1,8 @@
-import classes from './blog.module.css'
 import car1 from '../../../images/car1.jpg'
 import car2 from '../../../images/car2.png'
 
 const Blog = () => {
+
     return (
         <section className="container py-md-5">
             <div className="row">
@@ -34,7 +34,7 @@ const Blog = () => {
                         </ul>
                     </div>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="enter your email"  />
+                        <input type="text" class="form-control" placeholder="enter your email" />
                         <button class="btn btn-outline-primary" type="button">SUBSCRIBE</button>
                     </div>
                 </div>
